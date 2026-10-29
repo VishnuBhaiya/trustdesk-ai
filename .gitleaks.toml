@@ -1,0 +1,17 @@
+title = "TrustDesk source credential scan"
+[extend]
+useDefault = true
+
+# These three authored fixtures request a password but contain no credential.
+# Require BOTH the exact test path and one of these exact fixture identifiers.
+[[allowlists]]
+targetRules = ["generic-api-key"]
+description = "Synthetic guardrail placeholder-collision fixtures, not actual API keys"
+condition = "AND"
+regexTarget = "line"
+paths = ['''^tests/test_guardrails\.py$''']
+regexes = [
+  '''"secret-placeholder-collision"''',
+  '''"last-list-placeholder-collision"''',
+  '''"credential-reply-contact-list-placeholder"''',
+]
