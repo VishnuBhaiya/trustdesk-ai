@@ -3,7 +3,7 @@
 Checked on 29 October 2026 in an isolated publishing copy.
 
 - Notebook schema and transformed Python syntax validated across all 39 code cells.
-- The portable guardrail module passed the original authored status-and-rule regression cases; tests also require an empty post-filter rule list.
+- The portable guardrail module passed the complete original authored status-and-rule regression cases (1222 cases); tests also require an empty post-filter rule list.
 - Standard-library CLI demonstration exercised without a GPU, model download or provider request.
 - Source scanned for credentials; private Drive backups, saved outputs and widget metadata excluded.
 
