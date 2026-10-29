@@ -24,4 +24,4 @@ The source-only portfolio notebook has cleared outputs and private widget/accoun
 
 The included regression suite reuses the notebook's authored status/rule cases. Passing finite fixtures does not establish universal natural-language safety, factual accuracy or correct intent routing. Historical experiments must be distinguished from a new notebook run. See [validation](docs/VALIDATION.md).
 
-Author: Vishnu Bhaiya. Developed for advanced-AI coursework using Qwen, Hugging Face Transformers and PEFT. Dataset and upstream model terms remain applicable.
+Author: Vishnu Bhaiya. Built using Qwen, Hugging Face Transformers and PEFT. Dataset and upstream model terms remain applicable.

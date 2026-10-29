@@ -8,10 +8,10 @@ TAXONOMY_PAIRS = set(CATEGORY_TO_INTENT.items())
 POLICY_VERSION = 'trustdesk-policy-2026-10-08d'
 POLICY_RELEASE = {
     "basis_confirmed": True,
-    "source": "Assignment 2 brief, Part 3",
-    "provenance": "Brief requirements plus explicitly documented project design choices",
+    "source": "TrustDesk structured-output and guardrail requirements",
+    "provenance": "Project requirements plus explicitly documented implementation choices",
     "fallback_origin": "Project-authored deterministic fallback",
-    "status": "Brief-based project policy; not an external business policy",
+    "status": "Project policy; not an external business policy",
 }
 MAX_RAW_CHARS = 12000
 MAX_ANSWER_CHARS = int(os.environ.get('TRUSTDESK_MAX_ANSWER_CHARS', '1200'))
@@ -27,14 +27,14 @@ REPAIR_TEMPLATES = {
     "recover_password": "For account recovery, please use the official account-recovery or customer-support channel. Do not share passwords, PINs or verification codes.",
 }
 RULE_REGISTRY = [
-    {"rule_id": "SCHEMA_001", "condition": "Invalid JSON, duplicate keys, non-finite constants or raw output beyond cap", "severity": "critical", "action": "BLOCK", "priority": 100, "source": "Brief structured-output requirement + defensive parsing choice"},
+    {"rule_id": "SCHEMA_001", "condition": "Invalid JSON, duplicate keys, non-finite constants or raw output beyond cap", "severity": "critical", "action": "BLOCK", "priority": 100, "source": "Project structured-output requirement + defensive parsing choice"},
     {"rule_id": "SCHEMA_002", "condition": "Object does not have exactly category, intent and answer", "severity": "critical", "action": "BLOCK", "priority": 100, "source": "Documented JSON contract"},
     {"rule_id": "SCHEMA_003", "condition": "Any required value is not a nonempty string", "severity": "critical", "action": "BLOCK", "priority": 100, "source": "Documented JSON contract"},
     {"rule_id": "TAXONOMY_001", "condition": "Category outside dataset-derived allow-list", "severity": "critical", "action": "BLOCK", "priority": 90, "source": "Pinned dataset taxonomy; documented project allow-list"},
     {"rule_id": "TAXONOMY_002", "condition": "Intent outside dataset-derived allow-list", "severity": "critical", "action": "BLOCK", "priority": 90, "source": "Pinned dataset taxonomy; documented project allow-list"},
     {"rule_id": "TAXONOMY_003", "condition": "Known category and intent form a forbidden pair", "severity": "critical", "action": "BLOCK", "priority": 90, "source": "Pinned dataset mapping"},
-    {"rule_id": "SECRET_001", "condition": "Explicit or bounded referenced request to disclose authentication/payment secrets, bank account number, date of birth or security-question answers; secret collection for assistant identity verification", "severity": "critical", "action": "BLOCK", "priority": 80, "source": "Brief prohibited-information requirement; sensitive-identifier scope and authentication-entry exception are documented project choices"},
-    {"rule_id": "ACTION_001", "condition": "Unverified assertion that the assistant or customer initiated, approved or completed an external operation", "severity": "critical", "action": "BLOCK", "priority": 80, "source": "Brief unsupported-action example; pattern coverage is project-defined"},
+    {"rule_id": "SECRET_001", "condition": "Explicit or bounded referenced request to disclose authentication/payment secrets, bank account number, date of birth or security-question answers; secret collection for assistant identity verification", "severity": "critical", "action": "BLOCK", "priority": 80, "source": "Project prohibited-information requirement; sensitive-identifier scope and authentication-entry exception are documented project choices"},
+    {"rule_id": "ACTION_001", "condition": "Unverified assertion that the assistant or customer initiated, approved or completed an external operation", "severity": "critical", "action": "BLOCK", "priority": 80, "source": "Project unsupported-action requirement; pattern coverage is project-defined"},
     {"rule_id": "PLACEHOLDER_001", "condition": "Unresolved or malformed template delimiters", "severity": "repairable", "action": "REVISE", "priority": 50, "source": "Part 1 observed template contamination"},
     {"rule_id": "STYLE_001", "condition": "Answer exceeds MAX_ANSWER_CHARS", "severity": "repairable", "action": "REVISE", "priority": 40, "source": "Training length distribution; project choice"},
 ]
